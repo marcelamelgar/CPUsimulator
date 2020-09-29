@@ -16,6 +16,7 @@ class CPU:
         self.rom = Rom()
         self.registers = Registers()
         self.cu = CU()
+<<<<<<< HEAD
 
 
     def main (self):
@@ -54,3 +55,11 @@ class CPU:
 program1 = CPU()
 if __name__ == "__main__":
     program1.main()
+=======
+        
+    def CPU (self):
+        self.cu.doFetch()
+        self.cu.decode()
+        self.cu.execute()
+        self.prettyprint.drawing()
+>>>>>>> 2251ecbadd9fbdc31a44f02bbcb92bf808bee0c8
