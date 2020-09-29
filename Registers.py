@@ -4,14 +4,15 @@ class Registers(IntegratedCircuit):
 
     def __init__ (self):
         self.place = ''
-        self.r0 = int
-        self.r1 = int
-        self.r2 = int
-        self.r3 = int
-        self.iar = int
-        self.inpt = int
-        self.outpt = int
-        self.regAdress = ['00', '01', '10', '11']
+        self.r0 = 0
+        self.r1 = 0
+        self.r2 = 0
+        self.r3 = 0
+        self.iar = 0
+        self.inpt = 0
+        self.outpt = 0
+        #self.regAdress = [r0, r1, r2, r3]
+    
 
     def getRegAdress (self, operand):
         if (operand == "R0"):
@@ -23,6 +24,16 @@ class Registers(IntegratedCircuit):
         if (operand == "R3"):
             address = 4
         return address
+
+    def getRegValue (self, operand):
+        if (operand == "R0"):
+           return self.r0
+        elif (operand == "R1"):
+            return self.r1
+        elif (operand == "R2"):
+            return self.r2
+        elif (operand == "R3"):
+            return self.r3
 
 
     def reg0 (self):

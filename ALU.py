@@ -14,8 +14,14 @@ class Alu (IntegratedCircuit):
     def add (self):
         return self.inputA + self.inputB
 
+    def add (self, val1, val2):
+        return val1 + val2
+
     def sub (self):
         return self.inputA - self.inputB
+
+    def sub (self, val1, val2):
+        return val1 - val2
 
     def subborrow (self):
         while(self.inputA != 0):
@@ -58,7 +64,7 @@ class Alu (IntegratedCircuit):
         return self.inputA <= self.inputB
 
     def multiply (self, r1, r2):
-        return self.inputA * self.inputB
+        return r1 * r2
 
     def divide (self, r1, r2):
         return self.inputA / self.inputB
