@@ -86,7 +86,7 @@ class CU(IntegratedCircuit):
             return r2
         elif (opcode == 'Jump'):
             Do = 'no entendi'
-        elif (opcode == 'NegativaAluJump'):
+        elif (opcode == 'NegativeAluJump'):
             Do = 'negativealu'
         elif (opcode == 'Multiply'):
             val1 = self.registers.getRegValue(operand[0])

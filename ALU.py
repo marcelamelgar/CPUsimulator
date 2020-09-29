@@ -67,7 +67,7 @@ class Alu (IntegratedCircuit):
         return r1 * r2
 
     def divide (self, r1, r2):
-        return self.inputA / self.inputB
+        return r1 / r2
 
     def calculate (self, output):
         self.output = output
