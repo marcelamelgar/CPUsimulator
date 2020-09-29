@@ -40,7 +40,8 @@ class CU(IntegratedCircuit):
         if (len(instruction) < 3):
             getOperand = instruction[1]
         else:
-            getOperand = ''.join(instruction[1][2])
+            operand1 = instruction[1]
+            operand2 = instruction[2]
         data = self.ram.getData()
         opcode = self.rom.istOpcode(getOpcode)
         operand = self.rom.convertOperand(getOperand)
