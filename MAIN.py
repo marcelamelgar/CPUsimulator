@@ -18,3 +18,9 @@ class Main:
         self.rom = Rom()
         self.registers = Registers()
         self.cu = CU()
+        
+    def CPU (self):
+        self.cu.doFetch()
+        self.cu.decode()
+        self.cu.execute()
+        self.prettyprint.drawing()
