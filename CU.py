@@ -13,7 +13,6 @@ class CU(IntegratedCircuit):
         self.opcode = " "
         self.operand = ''
         self.code = ''
-        self.PC = 0
         self.IAR = ''
         self.ram = Ram()
         self.registers = Registers()
@@ -24,17 +23,21 @@ class CU(IntegratedCircuit):
 
     def doFetch (self):
         fetch = self.ram.getInstruction()
-        for self.PC in fetch:
-            self.IAR = self.PC.split()
-            self.PC =+ 1
-            return self.IAR
+        #for instructions in fetch:
+            #self.IAR = instructions.split()
+            #self.PC =+ 1
+            #return self.IAR
+        return fetch
     
 
 
     def decode(self, instruction):
         getOpcode = instruction[0]
         opcode = self.rom.istOpcode(getOpcode)
-        if (len(instruction) < 3):
+
+        if (len(instruction) == 1):
+            operand = '0'
+        elif (len(instruction) < 3):
             operand = self.rom.convertOperand(instruction[1])
         else:
             operand1 = self.rom.convertOperand(instruction[1])
@@ -49,67 +52,94 @@ class CU(IntegratedCircuit):
         elif (opcode == 'RamToR0'):
             value = self.ram.getValue(operand)
             r0 = self.registers.reg0(value)
-            return r0
+            return f"RAM value | {value} | moved to R0"
         elif (opcode == 'RamToR1'):
             value = self.ram.getValue(operand)
             r1 = self.registers.reg1(value)
-            return r1
+            return f"RAM value | {value} | moved to R1"
         elif (opcode == 'DoesAND'):
             id1, id2 = self.rom.registerID(operand)
             AND = self.alu.logicand(id1, id2)
-            return AND
+            return f""" 
+            AND BETWEEN {operand}
+            RESULT: {AND}
+            """
         elif (opcode == 'ReadConstantToR0'):
-            Do = 'no entendi que hace'
+            return 'no entendi que hace'
         elif (opcode == 'FromR0ToRAM'):
-            r0 = self.registers.reg0()
-            return self.ram.changeValue(operand, r0)
+            r0 = self.registers.getReg0()
+            newVal = self.ram.changeValue(operand, r0)
+            return f"""
+            VALUE R0: {r0}
+            MOVED TO RAM LOCATION: {operand}
+            """
         elif (opcode == 'FromR1ToRAM'):
-            r1 = self.registers.reg1()
-            return self.ram.changeValue(operand, r1)
+            r1 = self.registers.getReg1()
+            newPosition = self.ram.changeValue(operand, r1)
+            return f"""
+            VALUE R0: {r1}
+            MOVED TO RAM LOCATION: {operand}
+            """
         elif (opcode == 'PerformsOR'):
             id1, id2 = self.rom.registerID(operand)
             OR = self.alu.logicor(id1, id2)
-            return OR
+            return f"""
+            OR BETWEEN {operand}
+            RESULT: {OR}
+            """
         elif (opcode == 'ReadConstantToR1'):
-            Do = 'no entendi'
+           return 'no entendi'
         elif (opcode == 'AddTwoRegs'):
             val1 = self.registers.getRegValue(operand[0])
             val2 = self.registers.getRegValue(operand[1])
             answer = self.alu.add(val1, val2)
             r2 = self.registers.reg2(answer)
-            return r2
+            return f"""
+            SUM BETWEEN {operand[0]} - {operand[0]}
+            RESULT: {answer}
+            STORED IN R2
+            """
         elif (opcode == 'SubstractTwoRegs'):
             val1 = self.registers.getRegValue(operand[0])
             val2 = self.registers.getRegValue(operand[1])
             answer = self.alu.sub(val1, val2)
             r2 = self.registers.reg2(answer)
-            return r2
+            return f"""
+            SUBTRACTION BETWEEN {operand[0]} - {operand[0]}
+            RESULT: {answer}
+            STORED IN R2
+            """
         elif (opcode == 'Jump'):
-            Do = 'no entendi'
+            return 'no entendi'
         elif (opcode == 'NegativeAluJump'):
-            Do = 'negativealu'
+            return 'negativealu'
         elif (opcode == 'Multiply'):
             val1 = self.registers.getRegValue(operand[0])
             val2 = self.registers.getRegValue(operand[1])
             answer = self.alu.multiply(val1, val2)
             r2 = self.registers.reg2(answer)
-            return r2
+            return f"""
+            MULTIPLICATION BETWEEN {operand[0]} - {operand[0]}
+            RESULT: {answer}
+            STORED IN R2
+            """
         elif (opcode == 'Divide'):
             val1 = self.registers.getRegValue(operand[0])
             val2 = self.registers.getRegValue(operand[1])
             answer = self.alu.divide(val1, val2)
             r2 = self.registers.reg2(answer)
-            return r2
+            return f"""
+            DIVISION BETWEEN {operand[0]} - {operand[0]}
+            RESULT: {answer}
+            STORED IN R2
+            """
         elif (opcode == 'ProgramDone'):
-            return "The program has come to an End"
+            return "HALT"
             
 
     def InstructionAddressRegister(self):
         return self.InsAddReg
 
 
-
-
-ins = ['LOAD_R0', 'F']
-ejemplo = CU()
-print(ejemplo.decode(ins))
+#ejemplo = CU()
+#print(ejemplo.doFetch())

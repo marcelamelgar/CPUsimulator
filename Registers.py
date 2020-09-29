@@ -36,28 +36,28 @@ class Registers(IntegratedCircuit):
             return self.r3
 
 
-    def reg0 (self):
+    def getReg0 (self):
         return self.r0
 
     def reg0 (self, val):
         self.r0 = val
         return self.r0
 
-    def reg1(self):
+    def getReg1(self):
         return self.r1
 
     def reg1(self, val):
         self.r1 = val
         return self.r1
 
-    def reg2(self):
+    def getReg2(self):
         return self.r2
 
     def reg2(self, val):
         self.r2 = val
         return self.r2
 
-    def reg3(self):
+    def getReg3(self):
         return self.r3
 
     def reg3(self, val):

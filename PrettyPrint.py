@@ -15,7 +15,7 @@ class PrettyPrint():
         self.cu = CU()
 
     def getreg0(self):
-        return self.registers.r0()
+        return self.registers.getReg0()
     def getreg1(self):
         return self.registers.reg1()
     def getreg2(self):
@@ -33,11 +33,12 @@ class PrettyPrint():
     
 
     def drawing(self):
+        r0 = self.registers.getReg0()
         self.pprint = input("press 1 to print the CPU's current state")
         if(self.pprint == '1'):
             print("     ----------     ----------    -----------    -----------                                         ~R A M~")
             print("     |  R0    |     |   R1   |    |   R2    |    |   OUT   |------------------------------------|adress  data |")
-            print("     |        |     |        |    |         |    |         |                                    | 0000 |      |")
+            print(f"    | {r0}   |     |        |    |         |    |         |                                    | 0000 |      |")
             print("     ----------     ----------    -----------    -----------                                    | 0001 |      |")
             print("         |              |                 |           |                                         | 0010 |      |")
             print("         |               --------------¬   ---¬       |                                         | 0011 |      |")

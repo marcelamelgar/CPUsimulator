@@ -1,8 +1,0 @@
-;divides and then multiplies
-LD_R0 2
-LD_R1 0110
-1110 R1 R0 
-LOAD_R1 4
-1101 R0 R1
-OUTPUT 7
-HALT

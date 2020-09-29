@@ -19,8 +19,17 @@ class Ram:
         return self.data
 
     def getValue (self, position):
+        position = int(position)
         return self.data[position]
 
     def changeValue (self, position, value):
-        self.data[position] = value
+        position = int(position)
+        value = int(value)
+        newVal = self.data[position] = value
+        return newVal
+
+#ejemplo = Ram()
+#print(ejemplo.getData())
+#print(ejemplo.changeValue('4', '14'))
+#print(ejemplo.getData())
       

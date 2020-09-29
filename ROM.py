@@ -128,6 +128,5 @@ class Rom:
     def binaryToDecimal (self, operand):
         return int(operand,2)
 
-operand = "11"
-ejemplo = Rom()
-print(ejemplo.binaryToDecimal(operand))
+#clock = Rom()
+#print(clock.getClock())

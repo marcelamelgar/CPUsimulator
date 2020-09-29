@@ -1,13 +1,11 @@
 import time
-class CPUclock:
-    def _init_(self,frecuencia = 0.5): #Frecuencia en Hertz
-        self.frecuencia = frecuencia
+from ROM import Rom
 
-    def tiempo(self, frecuencia):
-        if (frecuencia > 0):
-            self.frecuencia = 1/frecuencia
-        else:
-            self.frecuencia = 0
+class CPUclock:
+    clock = Rom() 
+    hrtz = 0
+    frecuencia = clock.getClock()
+    hrtz = 1/frecuencia
     
     def sleepScreen(self):
-        time.sleep(self.frecuencia) 
+        time.sleep(self.hrtz) 

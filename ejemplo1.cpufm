@@ -1,6 +1,0 @@
-; multiplies two numbers
-0001 0110
-LOAD_R1 13
-1101 R0 R1 
-STORE 4
-OUTPUT 0100

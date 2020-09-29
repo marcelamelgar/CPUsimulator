@@ -1,9 +1,0 @@
-; adds and then substracts
-LOAD_R0 1001
-0010 6
-ADD R0 R1
-LOAD_R0 3
-1010 R1 R0
-STORE_R0 1
-OUTPUT 0001
-HLT
