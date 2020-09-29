@@ -134,21 +134,21 @@ class Rom:
             location = self.data[6]
         elif (self.operand == '0111' or self.operand == '7'):
             location = self.data[7]
-        elif (self.operand == '1000' or self.operand == '8' or self.operand == '10'):
+        elif (self.operand == '1000' or self.operand == '8'):
             location = self.data[8]
-        elif (self.operand == '1001' or self.operand == '11' or self.operand == '9'):
+        elif (self.operand == '1001' or self.operand == '9'):
             location = self.data[9]
-        elif (self.operand == '1010' or self.operand == '12' or self.operand == '10' or self.operand == 'A'):
+        elif (self.operand == '1010' or self.operand == '10' or self.operand == 'A'):
             location = self.data[10]
-        elif (self.operand == '1011' or self.operand == '13' or self.operand == '11' or self.operand == 'B'):
+        elif (self.operand == '1011' or self.operand == '11' or self.operand == 'B'):
             location = self.data[11]
-        elif (self.operand == '1100' or self.operand == '14' or self.operand == '12' or self.operand == 'C'):
+        elif (self.operand == '1100' or self.operand == '12' or self.operand == 'C'):
             location = self.operand
-        elif (self.operand == '1101' or self.operand == '15' or self.operand == '13' or self.operand == 'D'):
+        elif (self.operand == '1101' or self.operand == '13' or self.operand == 'D'):
             location = self.data[13]
-        elif (self.operand == '1110' or self.operand == '16' or self.operand == '14' or self.operand == 'E'):
+        elif (self.operand == '1110' or self.operand == '14' or self.operand == 'E'):
             location = self.data[14]
-        elif (self.operand == '1111' or self.operand == '17' or self.operand == '15' or 'F'):
+        elif (self.operand == '1111' or self.operand == '15' or 'F'):
             location = self.data[15]
         elif (self.operand == 'R0' or self.operand == 'R1' or self.operand == 'R2' or self.operand == 'R3'):
             location = self.operand
