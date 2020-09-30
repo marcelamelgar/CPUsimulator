@@ -9,3 +9,4 @@ class CPUclock:
     
     def sleepScreen(self):
         time.sleep(self.hrtz) 
+        return time.sleep(self.hrtz)
