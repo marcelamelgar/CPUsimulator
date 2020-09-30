@@ -26,7 +26,7 @@ class Alu (IntegratedCircuit):
     def subborrow (self):
         while(self.inputA != 0):
             borrow = (~self.inputA) & self.inputB 
-            self.result = self.inputA ^ self.inputB             #chequear si lo hice bien
+            self.result = self.inputA ^ self.inputB         
             self.inputB = borrow << 1
         return self.result
 

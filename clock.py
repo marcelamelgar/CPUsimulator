@@ -7,5 +7,8 @@ class CPUclock:
     frecuencia = clock.getClock()
     hrtz = 1/frecuencia
     
+    def getClock(self):
+        return self.hrtz
+
     def sleepScreen(self):
         time.sleep(self.hrtz) 

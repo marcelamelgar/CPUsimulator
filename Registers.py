@@ -11,7 +11,7 @@ class Registers(IntegratedCircuit):
         self.iar = 0
         self.inpt = 0
         self.outpt = 0
-        #self.regAdress = [r0, r1, r2, r3]
+        
     
 
     def getRegAdress (self, operand):

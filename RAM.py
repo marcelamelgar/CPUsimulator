@@ -26,12 +26,6 @@ class Ram:
             if not line.strip().startswith(";"):
                 instruction = line.strip()
                 self.code.append(instruction)
-    #def getFile(self, files):
-        #self.instructions = open(files, "r")
-        #for line in self.instructions: 
-            #if not line.strip().startswith(";"):
-                #instruction = line.strip()
-                #self.code.append(instruction)
 
     def getInstruction(self):
         return self.code

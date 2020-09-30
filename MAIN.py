@@ -5,6 +5,7 @@ from clock import CPUclock
 from Memory import Memory
 from RAM import Ram
 from ROM import Rom
+from PrettyPrint import PrettyPrint
 
 class CPU:
     clock = CPUclock()
@@ -14,8 +15,11 @@ class CPU:
         self.rom = Rom()
         self.registers = Registers()
         self.cu = CU()
+        self.ram = Ram()
 
-
+    #hay un glitch que se repite el proceso
+    #de seleccionar el file dos veces
+    #no supimos como arreglarlo
     def main (self):
         execute = ' '
         PC = 0
@@ -45,8 +49,7 @@ class CPU:
                     n = 1
                 else: 
                     continue
-
-
+        PrettyPrint.drawing(self)
 
 program1 = CPU()
 if __name__ == "__main__":
