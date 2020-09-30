@@ -1,9 +1,9 @@
 ; Ejemplo de un simple and & or
 LD_R0 4
 LOAD_R1 9
-R0 AND R1 
+AND R1 R3 
 STR_R1 8
-R1 OR R0
+OR R0 R1
 STORE_R0 F
 OUTPUT F
 OUT 8

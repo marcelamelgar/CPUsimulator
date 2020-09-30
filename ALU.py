@@ -42,7 +42,9 @@ class Alu (IntegratedCircuit):
         self.inputB = val2
         return self.inputA & self.inputB
 
-    def logicor (self):
+    def logicor (self, val1, val2):
+        self.inputA = val1
+        self.inputB = val2
         return self.inputA | self.inputB 
 
     def lshift (self):

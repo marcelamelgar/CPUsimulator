@@ -1,9 +1,0 @@
-; suma y division
-LOAD_R0 6
-LD_R1 1001
-1001 R0 R1 
-LOAD_R0 3
-1110 R1 R0
-STR_R0 8
-OUTPUT 1000
-HLT
