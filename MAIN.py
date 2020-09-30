@@ -10,13 +10,11 @@ class CPU:
     clock = CPUclock()
     def __init__ (self):
         self.alu = Alu()
-        #self.clock = CPUclock()
         self.memory = Memory()
         self.ram = Ram()
         self.rom = Rom()
         self.registers = Registers()
         self.cu = CU()
-<<<<<<< HEAD
 
 
     def main (self):
@@ -38,7 +36,7 @@ class CPU:
                 print("~~~~~~~~~~~~~~~~~~~~~~")
                 print("DECODE")
                 print("~~~~~~~~~~~~~~~~~~~~~~")
-                print(f"Opcode: {opcode}\nOperand: {operand}\n")
+                print(f"\nOpcode: {opcode}\nOperand: {operand}\n")
                 self.clock.sleepScreen()
                 execute = self.cu.execute(opcode, operand)
                 print("~~~~~~~~~~~~~~~~~~~~~~")
@@ -55,11 +53,3 @@ class CPU:
 program1 = CPU()
 if __name__ == "__main__":
     program1.main()
-=======
-        
-    def CPU (self):
-        self.cu.doFetch()
-        self.cu.decode()
-        self.cu.execute()
-        self.prettyprint.drawing()
->>>>>>> 2251ecbadd9fbdc31a44f02bbcb92bf808bee0c8
