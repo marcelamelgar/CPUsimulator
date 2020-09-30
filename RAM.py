@@ -1,4 +1,5 @@
 from ROM import Rom
+import random
 
 class Ram:
 
@@ -18,6 +19,13 @@ class Ram:
     def getData(self):
         return self.data
 
+    def getDataBits(self):
+        bitsData = []
+        for val in self.data:
+            bits = self.rom.radixConverter(val)
+            bitsData.append(bits)
+        return bitsData
+
     def getValue (self, position):
         position = int(position)
         return self.data[position]
@@ -28,8 +36,9 @@ class Ram:
         newVal = self.data[position] = value
         return newVal
 
-#ejemplo = Ram()
-#print(ejemplo.getData())
-#print(ejemplo.changeValue('4', '14'))
-#print(ejemplo.getData())
+    def InsAddReg (self):
+        number = random.randint(1, 15)
+        insAddReg = self.rom.radixConverter(number)
+        return insAddReg
+
       

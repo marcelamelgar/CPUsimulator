@@ -7,7 +7,7 @@ class Rom:
         self.opcode = str
         self.operand = int
         self.registers = Registers()
-        with open ('bios.yaml', 'r') as bios:
+        with open ('bios.yaml', 'r') as bios: #YAML con instrucciones 
             self.bios = yaml.full_load(bios)
         
         for toDo in self.bios:
@@ -33,7 +33,7 @@ class Rom:
         return self.data
 
     
-    def istOpcode (self, opcode):
+    def istOpcode (self, opcode):  #instruction set table
         self.opcode = opcode
         while (True):
             if (self.opcode == '0000' or self.opcode == 'OUTPUT' or self.opcode == 'OUT'):
@@ -71,7 +71,7 @@ class Rom:
             return instruct
 
 
-    def convertOperand(self, operand):
+    def convertOperand(self, operand): #operand converter
         self.operand = operand
 
         if (self.operand == '0000' or self.operand == '0'):
@@ -110,7 +110,7 @@ class Rom:
             return self.operand
         return operand
 
-    def registerID (self, operand):
+    def registerID (self, operand): #get the register id
         id1 = operand[0]
         id2 = operand[1]
             
@@ -121,12 +121,10 @@ class Rom:
     
 
     def radixConverter (self, operand):
-        if (operand > 1 and operand < 15):
+        if (operand >= 0 and operand <= 15):
             return bin(operand).replace("0b", "")
 
 
     def binaryToDecimal (self, operand):
         return int(operand,2)
 
-#clock = Rom()
-#print(clock.getClock())
