@@ -14,53 +14,41 @@ class PrettyPrint():
         self.clock = CPUclock()
         self.cu = CU()
 
-    def getreg0(self):
-        return self.registers.getReg0()
-    def getreg1(self):
-        return self.registers.reg1()
-    def getreg2(self):
-        return self.registers.reg2()
-    def getregout(self):
-        return self.registers.outputreg()
-    #def getopcode(self):
-        #return self.cu.decode()
-    #def getoperand(self):
-        #return self.execute.operand() ggffwweewedsweqaqweqweqweasddf
-    #def getiar(self):
-        #return self.cu.InstructionAddressRegister()
-    #def getclock(self):
-        #return self.clock.tiempo.frecuencia()
     
 
     def drawing(self):
         r0 = self.registers.getReg0()
+        r1 = self.registers.getReg1()
+        r2 = self.registers.getReg2()
+        rout = self.registers.outputreg()
+        clck = self.clock.sleepScreen()
         self.pprint = input("press 1 to print the CPU's current state")
         if(self.pprint == '1'):
             print("     ----------     ----------    -----------    -----------                                         ~R A M~")
-            print("     |  R0    |     |   R1   |    |   R2    |    |   OUT   |------------------------------------|adress  data |")
-            print(f"    | {r0}   |     |        |    |         |    |         |                                    | 0000 |      |")
-            print("     ----------     ----------    -----------    -----------                                    | 0001 |      |")
-            print("         |              |                 |           |                                         | 0010 |      |")
-            print("         |               --------------¬   ---¬       |                                         | 0011 |      |")
-            print("         ---------------------------¬  |      |       |                                         | 0100 |      |")
-            print("                                     | |      |       |                                         | 0101 |      |")
-            print("                                    **************************************                      | 0110 |      |")
-            print("                                    * Control Unit                       *                      | 0111 |      |")
-            print("                ------------------- *                                    *                      | 1000 |      |")
-            print("                |    |              *             --------------         *                      | 1001 |      |")
-            print("        -------------------         *            | opcode|operand |      *                      | 1010 |      |")
-            print("         \     ALU       /          *            |       |        |      *                      | 1011 |      |")
-            print("          \             /           *             ---------------        *                      | 1100 |      |")
-            print("           \   + -     /            *                                    *                      | 1101 |      |")
-            print("            \  &  *   /             *            -----------------       *                      | 1110 |      |")
-            print("             \       /              *           |  inst.addr.reg  |      *                      | 1111 |      |")
+            print("     |   R0   |     |   R1   |    |   R2    |    |   OUT   |------------------------------------|adress  data |")
+            print(f"     |  {r0}     |     |  {r1}     |    |  {r2}      |    |  {rout}      |                                    | 0000 |      |")
+            print(f"     ----------     ----------    -----------    -----------                                    | 0001 |      |")
+            print(f"         |              |                 |           |                                         | 0010 |      |")
+            print(f"         |               --------------¬   ---¬       |                                         | 0011 |      |")
+            print(f"         ---------------------------¬  |      |       |                                         | 0100 |      |")
+            print(f"                                     | |      |       |                                         | 0101 |      |")
+            print(f"                                    **************************************                      | 0110 |      |")
+            print(f"                                    * Control Unit                       *                      | 0111 |      |")
+            print(f"                ------------------- *                                    *                      | 1000 |      |")
+            print(f"                |    |              *             --------------         *                      | 1001 |      |")
+            print(f"        -------------------         *            | opcode|operand |      *                      | 1010 |      |")
+            print(f"         \     ALU       /          *            |       |        |      *                      | 1011 |      |")
+            print(f"          \             /           *             ---------------        *                      | 1100 |      |")
+            print(f"           \   + -     /            *                                    *                      | 1101 |      |")
+            print(f"            \  &  *   /             *            -----------------       *                      | 1110 |      |")
+            print(f"             \       /              *           |  inst.addr.reg  |      *                      | 1111 |      |")
             print("              \     /               *           |                 |      *                      ---------------")
             print("               \___/                **************************************")
             print("                  |                        |                           |")
             print("                   ------------------------                            |")
             print("                                                                 ------------")
             print("                                                                | clock      |")
-            print("                                                                |            |")
+            print(f"                                                                |    {clck}    |")
             print("                                                                 ------------")
 
 ejemplo = PrettyPrint()
